@@ -3,7 +3,7 @@ resource "azurerm_linux_virtual_machine" "sg_vm" {
   name                = each.value.vm_name
   resource_group_name = each.value.rg_name
   location            = each.value.rg_location
-  size                = "Standard_F2"
+  size                = "Standard_D2ls_v5"
   admin_username      = "aadimanav"
   admin_password      = "aadimanav@123456"
   network_interface_ids           = [var.nic_ids[each.value.nic_key ] ]
