@@ -31,9 +31,9 @@ stages:
           displayName: "Terraform fmt"
           inputs:
             provider: none
-            command: custom
+            command: fmt
             workingDirectory: $(System.DefaultWorkingDirectory)
-            customCommand: fmt
+            
 
         - task: TerraformTaskV4@4
           displayName: "Terraform validate"
