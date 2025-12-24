@@ -35,7 +35,7 @@ stages:
         - task: TerraformTaskV4@4
           displayName: "Terraform plan"
           inputs:
-            provider: azurerm
+            provider: none
             command: plan
             workingDirectory: $(System.DefaultWorkingDirectory)
             environmentServiceNameAzureRM: Shekhar-SVC
@@ -80,7 +80,7 @@ stages:
         - task: TerraformTaskV4@4
           displayName: "Terraform Apply"
           inputs:
-            provider: azurerm
+            provider: none
             command: apply
             workingDirectory: $(System.DefaultWorkingDirectory)
             environmentServiceNameAzureRM: Shekhar-SVC
