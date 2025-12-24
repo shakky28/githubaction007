@@ -30,7 +30,7 @@ stages:
         - task: TerraformTaskV4@4
           displayName: "Terraform fmt"
           inputs:
-            provider: azurerm
+            provider: none
             command: custom
             workingDirectory: $(System.DefaultWorkingDirectory)
             customCommand: fmt
@@ -38,7 +38,7 @@ stages:
         - task: TerraformTaskV4@4
           displayName: "Terraform validate"
           inputs:
-            provider: azurerm
+            provider: none
             command: validate
             workingDirectory: $(System.DefaultWorkingDirectory)
 
