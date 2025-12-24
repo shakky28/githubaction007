@@ -27,13 +27,10 @@ stages:
             backendAzureRmContainerName: tfstate
             backendAzureRmKey: task.terraform.tfstate
          
-
-        - task: TerraformTaskV4@4
-          displayName: "Terraform validate"
+        - task: TerraformTask@5
           inputs:
-            provider: none
-            command: validate
-            workingDirectory: $(System.DefaultWorkingDirectory)
+            provider: 'azurerm'
+            command: 'validate'
 
         - task: TerraformTaskV4@4
           displayName: "Terraform plan"
