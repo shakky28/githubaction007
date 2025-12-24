@@ -20,7 +20,7 @@ stages:
           inputs:
             provider: azurerm
             command: init
-            workingDirectory: $(System.DefaultWorkingDirectory/parent_module)
+            workingDirectory: $(System.DefaultWorkingDirectory)/parent_module
             backendServiceArm: Shekhar-SVC
             backendAzureRmResourceGroupName: sgrg1000
             backendAzureRmStorageAccountName: stg50411
