@@ -32,13 +32,13 @@ stages:
             provider: 'azurerm'
             command: 'validate'
         
-
         - task: TerraformTask@5
-          displayName: Terraform Plan
           inputs:
             provider: 'azurerm'
             command: 'plan'
+            workingDirectory: '$(System.DefaultWorkingDirectory)parent_module'
             environmentServiceNameAzureRM: 'Shekhar-SVC'
+
 
 - stage: Manual_Approval
   displayName: "Manual Validation"
