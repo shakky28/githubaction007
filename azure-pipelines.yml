@@ -17,9 +17,9 @@ stages:
             provider: azurerm
             command: init
             workingDirectory: $(System.Default_Working_Directory)
-            backendServiceArm: azure-sc
-            backendAzureRmResourceGroupName: sg-rg1
-            backendAzureRmStorageAccountName: stg5041
+            backendServiceArm: Shekhar-SVC
+            backendAzureRmResourceGroupName: sgrg1000
+            backendAzureRmStorageAccountName: stg50411
             backendAzureRmContainerName: tfstate
             backendAzureRmKey: task.terraform.tfstate
 
@@ -44,7 +44,7 @@ stages:
             provider: azurerm
             command: plan
             workingDirectory: $(System.Default_Working_Directory)
-            environmentServiceNameAzureRM: azure-sc
+            environmentServiceNameAzureRM: Shekhar-SVC
             commandOptions: "-out=tfplan"
 
 - stage: Manual_Approval
@@ -74,9 +74,9 @@ stages:
             provider: azurerm
             command: init
             workingDirectory: $(System.Default_Working_Directory)
-            backendServiceArm: azure-sc
-            backendAzureRmResourceGroupName: sg-rg1
-            backendAzureRmStorageAccountName: stg5041
+            backendServiceArm: Shekhar-SVC
+            backendAzureRmResourceGroupName: sgrg1000
+            backendAzureRmStorageAccountName: stg50411
             backendAzureRmContainerName: tfstate
             backendAzureRmKey: task.terraform.tfstate
 
@@ -89,5 +89,5 @@ stages:
             provider: azurerm
             command: apply
             workingDirectory: $(System.Default_Working_Directory)
-            environmentServiceNameAzureRM: azure-sc
+            environmentServiceNameAzureRM: Shekhar-SVC
             commandOptions: "tfplan"
