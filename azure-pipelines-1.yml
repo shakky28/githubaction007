@@ -39,9 +39,7 @@ stages:
             command: 'plan'
             workingDirectory: '$(System.DefaultWorkingDirectory)/parent_module'
             environmentServiceNameAzureRM: 'Shekhar-SVC'
-            commandOptions: "-out=tfplan"
-        - publish: $(System.DefaultWorkingDirectory)/parent_module/tfplan
-          artifact: tfplan
+        
 
 - stage: Manual_Approval
   displayName: "Manual Validation"
@@ -75,16 +73,12 @@ stages:
             backendAzureRmStorageAccountName: stg50411
             backendAzureRmContainerName: tfstate
             backendAzureRmKey: task.terraform.tfstate
-
-        - download: current
-          artifact: tfplan
-
-        - task: TerraformTaskV4@4
-          displayName: "Terraform Apply"
+        
+        - task: TerraformTask@5
           inputs:
-            provider: none
-            command: apply
+            provider: 'azurerm'
+            command: 'apply'
             workingDirectory: '$(System.DefaultWorkingDirectory)/parent_module'
-            environmentServiceNameAzureRM: Shekhar-SVC
-            commandOptions: "tfplan"
+            environmentServiceNameAzureRM: 'Shekhar-SVC'
+        
 
