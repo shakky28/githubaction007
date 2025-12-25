@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  name : SG=Agent
+  name : SG-Agent
 
 stages:
 - stage: Terraform_Checks
