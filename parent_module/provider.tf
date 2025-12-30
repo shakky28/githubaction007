@@ -6,8 +6,7 @@ terraform {
     }
   }
 
-  backend "azurerm" {  
-    use_cli          = true                       
+  backend "azurerm" {                       
     use_azuread_auth     = true                                    
     tenant_id            = "8511c397-31e5-4758-ac6b-099e3eadbe24"  
     storage_account_name = "stg50411"                              
@@ -18,5 +17,8 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "722e98bb-a107-4d7c-8537-ba8c2f35547f"
+  subscription_id = var.subscription_id
+  client_id       = var.client_id
+  client_secret   = var.client_secret
+  tenant_id       = var.tenant_id
 }
