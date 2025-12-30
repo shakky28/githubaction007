@@ -32,11 +32,14 @@ jobs:
         run: terraform init
 
       - name: Terraform Validate
+        working-directory: parent_module
         run: terraform validate
 
       - name: Terraform Plan
+        working-directory: parent_module
         run: terraform plan -out=tfplan
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
+        working-directory: parent_module
         run: terraform apply -auto-approve tfplan 
